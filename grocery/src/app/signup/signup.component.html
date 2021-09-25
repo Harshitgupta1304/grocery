@@ -1,0 +1,55 @@
+
+<mat-card class = 'card'>
+    <mat-card-header>
+          <mat-card-title>SignUp</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form (ngSubmit)='onSubmit()' [formGroup]='SignUpForm' novalidate class="form">
+            <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width" appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput formControlName='firstName' type="text" class="form-control">
+                </mat-form-field></td>
+            <td><mat-form-field class="full-width" appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName='lastName' type="text" class="form-control">
+                </mat-form-field></td>
+        </tr></table>
+      
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width "  appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName='email' type="text" class="form-control" placeholder="john@gmail.com">
+          </mat-form-field></td>
+        </tr>
+        </table>
+        <table class="full-width" cellspacing="0"><tr>  
+        <td><mat-form-field class="full-width " appearance="fill">
+            <mat-label>Mobile Number</mat-label>
+            <span matPrefix>+91 &nbsp;</span>
+            <input matInput formControlName='mobileNo' type="tel" class="form-control" placeholder = "1234567890">
+          </mat-form-field></td>
+          </tr>
+          </table>
+        
+      
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName='password' type="password" class="form-control">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width" appearance="fill">
+            <mat-label>Confirm password</mat-label>
+            <input matInput formControlName='confirmPassword' type="password" class="form-control" >
+          </mat-form-field></td>
+          
+         
+        </tr></table>
+        <div class="button-wrapper">
+            <button mat-flat-button color="primary">Submit</button>
+          </div>
+      </form>
+        </mat-card-content>      
+    
+</mat-card>

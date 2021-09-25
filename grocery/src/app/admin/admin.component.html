@@ -1,0 +1,58 @@
+<mat-card class = 'card'>
+    <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form (ngSubmit)='addProduct()' [formGroup]='productForm' novalidate class="form">
+            
+      
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width "  appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName='productName' type="text" class="form-control" >
+          </mat-form-field></td>
+        </tr>
+        </table>
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width" appearance="fill">
+            <mat-label>Quantity Available</mat-label>
+            <input matInput formControlName='qty_avl' type="number" class="form-control">
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width" appearance="fill">
+            <mat-label>In Stock</mat-label>
+            <input matInput formControlName='qty_avl_status' type="number" class="form-control">
+          </mat-form-field></td>
+        </tr></table>
+        <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>Price</mat-label>
+              <input matInput formControlName='price' type="text" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table>
+          <!-- <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>Image</mat-label>
+              <input matInput formControlName='image' 
+type="file" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table> -->
+
+
+        <div class="button-wrapper">
+            <button mat-flat-button color="primary">Login</button>
+          </div>
+      </form>
+      <input
+                    type="file"
+                    id="img"
+                    name="img"
+                    accept="image/*"
+                    (change)="imageUpload($event)"
+                                     />
+
+        </mat-card-content>      
+    
+</mat-card>
