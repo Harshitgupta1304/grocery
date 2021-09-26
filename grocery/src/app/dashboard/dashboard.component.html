@@ -1,25 +1,23 @@
-<mat-card class="example-card">
+<mat-grid-list cols="3" rowHeight="500px">
+<div  *ngFor="let item of data;index as i" >
+  <mat-grid-tile>
+<mat-card class="example-card" style="min-height: 450px;">
   <mat-card-header>
    
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-subtitle>Grocery Item</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
+  <img mat-card-image [src]= "item.productImage" style="max-height: 300px;">
+  
   <mat-card-actions>
-    <button mat-button>
+    <button mat-button (click)="onPlus(item)">
       <mat-icon>add_circle</mat-icon>
-      ADD</button>
-    <button mat-button>
+      ADD</button>{{item.value}}
+    <button mat-button (click)="onMinus(item)">
       <mat-icon>remove_circle</mat-icon>
       REMOVE</button>
   </mat-card-actions>
 </mat-card>
-
-
+</mat-grid-tile>
+</div>
+</mat-grid-list> 

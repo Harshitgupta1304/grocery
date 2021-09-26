@@ -1,58 +1,70 @@
-<mat-card class = 'card'>
-    <mat-card-header>
-          <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-
-        <form (ngSubmit)='addProduct()' [formGroup]='productForm' novalidate class="form">
-            
-      
-        <table class="full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="full-width "  appearance="fill">
-            <mat-label>Product Name</mat-label>
-            <input matInput formControlName='productName' type="text" class="form-control" >
-          </mat-form-field></td>
-        </tr>
-        </table>
-        <table class="full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="full-width" appearance="fill">
-            <mat-label>Quantity Available</mat-label>
-            <input matInput formControlName='qty_avl' type="number" class="form-control">
-          </mat-form-field></td>
-          <td><mat-form-field class="full-width" appearance="fill">
-            <mat-label>In Stock</mat-label>
-            <input matInput formControlName='qty_avl_status' type="number" class="form-control">
-          </mat-form-field></td>
-        </tr></table>
-        <table class="full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="full-width "  appearance="fill">
-              <mat-label>Price</mat-label>
-              <input matInput formControlName='price' type="text" class="form-control" >
-            </mat-form-field></td>
-          </tr>
-          </table>
-          <!-- <table class="full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="full-width "  appearance="fill">
-              <mat-label>Image</mat-label>
-              <input matInput formControlName='image' 
-type="file" class="form-control" >
-            </mat-form-field></td>
-          </tr>
-          </table> -->
-
-
-        <div class="button-wrapper">
-            <button mat-flat-button color="primary">Login</button>
+<ng-container *ngIf="products.length !=0">
+  <div class="container">
+      <div class="card-table">
+          <div class="cart-product">
+              <table class="table table-responsive">
+                  <thead>
+                      <tr>
+                          <th>Sr.No</th>
+                          <th>Product Name</th>
+                          <th>Product Image</th>
+                          
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of products; let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{item.name}}</td>
+                          <td><img style="width: 120px;" src="{{item.productImage}}" alt=""></td>
+                          
+                          <th style="width: 12%;">{{item.price}}</th>
+                          <td style="width: 12%;">{{item.qty_avl}}</td>
+                         
+                          <td>
+                              <button (click)="removeItem(item)" ></button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <!-- <td colspan="4"></td> -->
+                          
+                          <!-- <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td> -->
+                          <!-- <td><button class="btn btn-success">Checkout</button></td> -->
+                          
+                      </tr>
+                  </tbody>
+              </table>
           </div>
-      </form>
-      <input
-                    type="file"
-                    id="img"
-                    name="img"
-                    accept="image/*"
-                    (change)="imageUpload($event)"
-                                     />
+      </div>
+  </div>
+</ng-container>
 
-        </mat-card-content>      
+
+<!-- <ng-container *ngIf="products.length ==0">
+  <div class="container">
+      <div class="card">
+          <h5 class="card-title">My Cart</h5>
+      </div>
+      <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+          <h4>Your cart is empty!</h4>
+          <h6>Add item to it now</h6>
+          <button routerLink="/products" class="btn btn-primary">Shop Now</button>
+      </div>
+  </div>
+</ng-container> -->
+<!-- <table>
+  <tr>
+    <th>Serial No</th>
+    <th>Product Name</th>
+    <th>Qty Available</th>
+  </tr>
+  <tr *ngFor= "let item of products;index as i">
+    <td>{{item.name}}</td>
+    <td>{{item.qty_avl}}</td>
     
-</mat-card>
+  </tr>
+  
+</table> -->

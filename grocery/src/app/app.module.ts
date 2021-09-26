@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddressComponent } from './address/address.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthService } from './auth.service';
+import { ProductstoreComponent } from './admin/productstore/productstore.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { AdminComponent } from './admin/admin.component';
     AddressComponent,
     Navbar2Component,
     DashboardComponent,
-    AdminComponent
+    AdminComponent,
+    ProductstoreComponent,
+    CartComponent
     
   ],
   imports: [
@@ -40,7 +45,7 @@ import { AdminComponent } from './admin/admin.component';
     LayoutModule
     
   ],
-  providers: [Navbar2Component],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

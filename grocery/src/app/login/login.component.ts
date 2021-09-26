@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { FormGroup, FormBuilder,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 @Component({
@@ -15,10 +15,11 @@ export class LoginComponent implements OnInit {
   
   //invalidLogin: boolean = false;
   loginForm: FormGroup;
-  token :String;
+  token :string;
   constructor(
     private formbuilder : FormBuilder,
-    private http:HttpClient
+    private router :Router,
+    private authservice:AuthService
     ) { }
   
   ngOnInit() {
@@ -27,25 +28,23 @@ export class LoginComponent implements OnInit {
      password : ["", Validators.required]
    })
  }
-
-  
- onLogin(){
-  const {email} =this.loginForm.value;
-  const {password} =this.loginForm.value;
+ onLogin(email,password){
+   let result = this.authservice.onSignIn(email,password)
+   console.log(result)
    
-  const checkURL = new URL(`http://localhost:3000/api/v1/user/login`);
-    var reqHeader = new HttpHeaders({'Content-Type':'application/json'})
-    this.http.post(checkURL.href,{
-      email:email,
-      password:password
-  }, {headers: reqHeader}).subscribe(
-    (response:any)=>{
-      console.log(response)
-      this.token = response.data.token
-      console.log(this.token)
-    }
-  )
+   if(email=='admin@gmail.com'&& password =="12345678"){
+    this.router.navigate(['/admin']);
+  
+  }
+  else{
+    this.router.navigate(['/'])
+  }
+
  }
+ 
+  
+ 
+
 
   
   

@@ -1,0 +1,63 @@
+<mat-card class = 'card'>
+    <mat-card-header>
+          <mat-card-title>Add Product</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form (ngSubmit)='addProduct()' [formGroup]='productForm' novalidate class="form">
+          
+          <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>Category</mat-label>
+              <input matInput formControlName='category' type="text" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table>
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width "  appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName='productName' type="text" class="form-control" >
+          </mat-form-field></td>
+        </tr>
+        </table>
+        <table class="full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width" appearance="fill">
+            <mat-label>Quantity Available</mat-label>
+            <input matInput formControlName='qty_avl' type="number" class="form-control">
+          </mat-form-field></td>
+          
+        </tr></table>
+        <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>Price</mat-label>
+              <input matInput formControlName='price' type="text" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table>
+          <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>ImageUrl</mat-label>
+              <input matInput formControlName='imageURL' type="text" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table>
+          <!-- <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width "  appearance="fill">
+              <mat-label>Image</mat-label>
+              <input matInput formControlName='image' 
+type="file" class="form-control" >
+            </mat-form-field></td>
+          </tr>
+          </table> -->
+
+
+        <div class="button-wrapper">
+            <button mat-flat-button color="primary">Add</button>
+          </div>
+      </form>
+      
+
+        </mat-card-content>      
+    
+</mat-card>
+

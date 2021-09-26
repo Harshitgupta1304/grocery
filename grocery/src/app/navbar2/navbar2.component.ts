@@ -9,17 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar2.component.scss']
 })
 export class Navbar2Component {
-  isClicked=false;
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  
 
-  constructor(private breakpointObserver: BreakpointObserver,
+  constructor(
     private router:Router) {}
       onHandleLogin(){
-        this.isClicked=true
+       
         this.router.navigate(["/login"])
+        console.log('hii')
       }
 }

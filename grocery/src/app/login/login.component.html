@@ -4,7 +4,7 @@
         </mat-card-header>
         <mat-card-content>
     
-            <form (ngSubmit)='onLogin()' [formGroup]='loginForm' novalidate class="form">
+            <form (ngSubmit)='onLogin(loginForm.value.email,loginForm.value.password)' [formGroup]='loginForm' novalidate class="form">
                 
           
             <table class="full-width" cellspacing="0"><tr>
@@ -23,7 +23,11 @@
             <div class="button-wrapper">
                 <button mat-flat-button color="primary">Login</button>
               </div>
+              
           </form>
+          <div class="button-wrapper">
+                <button routerLink ='/signup' mat-flat-button color="primary">SignUp</button>
+              </div>          
             </mat-card-content>      
         
     </mat-card>
